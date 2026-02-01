@@ -1,0 +1,83 @@
+/* rgba(40, 84, 54, 0.9) */
+
+* {
+  font-family: IosevkaTermSlab NF, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+window {
+  margin: 10px;
+}
+
+window#waybar {
+  background-color: rgba(36, 64, 41, 0.9);
+  color: #E5D9B6;
+  transition-property: background-color;
+  transition-duration: .5s;
+  border-radius: 2rem;
+  padding: 10px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+menu {
+  background-color: rgba(40, 84, 54, 1);
+  color: #E5D9B6;
+  border: none;
+}
+
+menuitem:hover {
+  background-color: rgba(36, 64, 41, 0.9);
+}
+
+#language,
+#wireplumber,
+#tray,
+#network,
+#cpu,
+#memory {
+  padding: 0 10px;
+}
+
+#workspaces {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #244029;
+  border-radius: 2rem;
+}
+
+#workspaces button {
+  margin: 0;
+  padding: 0 5px;
+  border: none;
+  transition: color 0.3s;
+  /* cursor: pointer; */
+}
+
+#workspaces button:hover {
+  color: #A4BE7B;
+  border: none;
+  background: none;
+}
+
+#workspaces button:focus {
+  border: none;
+  background: none;
+}
+
+#workspaces button:active {
+  border: none;
+  background: none;
+}
+
+#workspaces button.focused {
+  border: none;
+}
+
+#workspaces button.active {
+  color: #A4BE7B;
+
+  border: none;
+}

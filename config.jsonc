@@ -1,0 +1,117 @@
+{
+    "height": 35, // Waybar height (to be removed for auto height)
+    "margin": "8 10 0 10",
+    "spacing": 4, // Gaps between modules (4px)
+    "reload_style_on_change": true, 
+    "modules-left": [
+      "niri/language",
+      "niri/workspaces" 
+    ],
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "wireplumber#sink",
+      "network",
+      "cpu",
+      "memory",
+      "tray"
+    ],
+    "niri/language": {
+      "format-ru": "Рус",
+      "format-en": "Eng",
+		  "menu": "on-click",
+		  "menu-file": "$HOME/.config/waybar/menus/language.xml",
+      "menu-actions": {
+        "russian": "niri msg action switch-layout 1",
+        "english": "niri msg action switch-layout 0"
+      }
+    },
+    "niri/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "default": "●"
+      },
+      "cursor": false 
+    },
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M\n%Y-%m-%d}",
+        "justify": "center"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "wireplumber#sink": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": ["", "", ""],
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+
+        "scroll-step": 5
+    },
+
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "{volume}% ",
+        "format-muted": "",
+        "max-volume": 500,
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 5
+    }
+    // ToDO
+		//   "custom/power": {
+		//       "format" : "⏻ ",
+		// "tooltip": false,
+		// "menu": "on-click",
+		// "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		// "menu-actions": {
+		// 	"shutdown": "shutdown",
+		// 	"reboot": "reboot",
+		// 	"suspend": "systemctl suspend",
+		// 	"hibernate": "systemctl hibernate"
+		// }
+		//   }
+}
